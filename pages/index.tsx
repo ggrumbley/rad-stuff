@@ -1,10 +1,17 @@
-import styled from 'styled-components'
+import React from 'react';
+import { useRouter } from 'next/router';
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+import Items from '../components/Items';
 
-export default function Home() {
-  return <Title>My page</Title>
-}
+const Home = () => {
+  const router = useRouter();
+  const { page } = router.query;
+
+  return (
+    <div>
+      <Items page={Number(page) || 1} />
+    </div>
+  );
+};
+
+export default Home;

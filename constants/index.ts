@@ -1,0 +1,8 @@
+export const PERMISSIONS = [
+  'ADMIN',
+  'USER',
+  'ITEMCREATE',
+  'ITEMUPDATE',
+  'ITEMDELETE',
+  'PERMISSIONUPDATE',
+];

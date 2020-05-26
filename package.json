@@ -1,22 +1,33 @@
 {
-  "name": "with-typescript-styled-components",
+  "name": "rad-stuff",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 7777",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "styled-components": "^5.0.0"
+    "@apollo/client": "^3.0.0-beta.50",
+    "@apollo/react-ssr": "^3.1.5",
+    "apollo-client": "^2.6.10",
+    "date-fns": "^2.14.0",
+    "downshift": "^5.4.2",
+    "graphql": "^15.0.0",
+    "lodash.debounce": "^4.0.8",
+    "next": "^9.4.2",
+    "nprogress": "^0.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-stripe-checkout": "^2.6.3",
+    "react-transition-group": "^4.4.1",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@types/node": "12.0.12",
-    "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4",
+    "@types/node": "^14.0.5",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
     "@types/styled-components": "5.0.1",
+    "babel-plugin-graphql-tag": "^2.5.0",
     "babel-plugin-styled-components": "^1.10.0",
     "typescript": "3.5.2"
   },
