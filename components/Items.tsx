@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 import Error from './ErrorMessage';
 import { perPage } from '../config';
 
+import * as T from '../models';
 import * as S from './styles';
 
 const ALL_ITEMS_QUERY = gql`
@@ -37,7 +38,7 @@ const Items: FunctionComponent<ItemsProps> = ({ page }) => {
     <S.ItemsContainer>
       <Pagination page={page} />
       <S.ItemsList>
-        {data.items.map((item) => (
+        {data.items.map((item: T.Item) => (
           <Item item={item} key={item.id} />
         ))}
       </S.ItemsList>

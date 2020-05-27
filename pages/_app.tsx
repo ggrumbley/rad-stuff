@@ -2,7 +2,7 @@ import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
 import Layout from '../components/Layout';
-import { withApollo } from '../graphql/withApollo';
+import { withApolloClient } from '../utils';
 import * as S from '../components/styles';
 
 class MyApp extends App {
@@ -20,4 +20,4 @@ class MyApp extends App {
   }
 }
 
-export default withApollo({ ssr: true })(MyApp);
+export default withApolloClient({ ssr: true })(MyApp);

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
-import PropTypes from 'prop-types';
 
 import { PERMISSIONS } from '../constants';
 import Error from './ErrorMessage';
+import * as T from '../models';
 import * as S from './styles';
 
 const UPDATE_PERMISSIONS_MUTATION = gql`
@@ -17,18 +17,23 @@ const UPDATE_PERMISSIONS_MUTATION = gql`
   }
 `;
 
-const UserPermissions = ({ user }) => {
+export interface UserPermissionsProps {
+  user: T.User;
+}
+
+const UserPermissions: React.FC<UserPermissionsProps> = ({ user }) => {
+  console.log(user);
   const [permissions, setPermissions] = useState(user.permissions);
   const [updatePermissions, { loading, error }] = useMutation(
     UPDATE_PERMISSIONS_MUTATION
   );
 
-  const handlePermissionChange = (e) => {
+  const handlePermissionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = e.target;
     let updatedPermissions = [...permissions];
 
     if (checked) {
-      updatedPermissions.push(value);
+      updatedPermissions.push(value as T.PERMISSIONS);
     } else {
       updatedPermissions = updatedPermissions.filter((p) => p !== value);
     }
@@ -54,7 +59,7 @@ const UserPermissions = ({ user }) => {
               <input
                 id={`${user.id}-permission-${permission}`}
                 type="checkbox"
-                checked={permissions.includes(permission)}
+                checked={permissions.includes(permission as T.PERMISSIONS)}
                 value={permission}
                 onChange={handlePermissionChange}
               />
@@ -77,15 +82,6 @@ const UserPermissions = ({ user }) => {
       </tr>
     </>
   );
-};
-
-UserPermissions.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    id: PropTypes.string,
-    permissions: PropTypes.array,
-  }).isRequired,
 };
 
 export default UserPermissions;

@@ -4,6 +4,8 @@ import { gql, useQuery } from '@apollo/client';
 import UserPermissions from './UserPermissions';
 import Error from './ErrorMessage';
 import { PERMISSIONS } from '../constants';
+
+import * as T from '../models';
 import * as S from './styles';
 
 const ALL_USERS_QUERY = gql`

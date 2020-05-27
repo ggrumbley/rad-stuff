@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 import TakeMyMoney from './TakeMyMoney';
 import { useUser } from '../utils';
 import { formatMoney, calcTotalPrice } from '../utils';
-import { GET_LOCAL_STATE } from '../graphql/cache';
+import { GET_LOCAL_STATE } from '../utils';
 import * as S from './styles';
 
 const TOGGLE_CART_MUTATION = gql`

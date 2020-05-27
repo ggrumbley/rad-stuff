@@ -1,10 +1,12 @@
-export const calcTotalPrice = (cart) =>
-  cart.reduce((tally, cartItem) => {
+import * as T from '../models';
+
+export const calcTotalPrice = (cart: T.CartItem[]) =>
+  cart.reduce((tally: number, cartItem: T.CartItem) => {
     if (!cartItem.item) return tally;
     return tally + cartItem.quantity * cartItem.item.price;
   }, 0);
 
-export const formatMoney = (amount) => {
+export const formatMoney = (amount: number) => {
   const options = {
     style: 'currency',
     currency: 'USD',
@@ -16,7 +18,12 @@ export const formatMoney = (amount) => {
   return formatter.format(amount / 100);
 };
 
-export const totalItems = (cart) =>
-  cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
+export const totalItems = (cart: T.CartItem[]) =>
+  cart.reduce(
+    (tally: number, cartItem: T.CartItem) => tally + cartItem.quantity,
+    0
+  );
 
 export { useUser, CURRENT_USER_QUERY } from './useUser';
+export { GET_LOCAL_STATE } from './apolloClient';
+export { withApolloClient } from './withApolloClient';
