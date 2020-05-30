@@ -8,6 +8,9 @@
     "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
     "generate:prisma": "prisma generate",
     "generate:nexus": "ts-node --transpile-only -P nexus.tsconfig.json server",
+    "db:migrate": "npm -s run prisma:save && npm -s run prisma:up",
+    "prisma:save": "prisma migrate save --name init --experimental",
+    "prisma:up": "prisma migrate up --experimental",
     "postinstall": "npm -s run generate",
     "tsc": "tsc --pretty --noEmit"
   },
